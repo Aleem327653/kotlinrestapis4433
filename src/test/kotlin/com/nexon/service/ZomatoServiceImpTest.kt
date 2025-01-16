@@ -53,4 +53,24 @@ class ZomatoServiceImpTest{
    }
   }
 
+    @Test
+    fun shouldUpdateZomatoDeliveryInformation(){
+
+        val updateZomato=Zomato(101,"Nexon Updated","HaldiRam")
+        val zomato= zomatoServiceImp.updateZomatoDekiveryDetails(updateZomato,101)
+
+        println(zomato)
+
+        assertTrue(zomato.id==updateZomato.id)
+        assertEquals(zomato.deleveryFrom,updateZomato.deleveryFrom)
+        assertEquals(zomato.deleveryAddress,updateZomato.deleveryAddress)
+    }
+
+    @Test
+    fun shouldDeleteDeliveryInformation(){
+        val data=zomatoServiceImp.deleteZomatoDelivery(102)
+        println(data)
+        assertTrue(data==Unit)
+    }
+
  }
