@@ -15,4 +15,16 @@ class ZomatoServiceImp:ZomatoService {
     override fun findZomatoDelivery(id: Int): Zomato =repo.findById(id).get()
 
     override fun findAllZomatoDelivery(): List<Zomato> =repo.findAll()
+
+    override fun updateZomatoDekiveryDetails(zomato: Zomato, id: Int): Zomato {
+        var data=repo.findById(id).get()
+        data.deleveryFrom=zomato.deleveryFrom
+        data.deleveryAddress=zomato.deleveryAddress
+
+        return repo.save(data)
+    }
+
+    override fun deleteZomatoDelivery(id: Int) {
+        repo.deleteById(id)
+    }
 }
